@@ -5,6 +5,7 @@ import { MenuItems } from "@/app/constants/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SocialMediaIcons from "../SocialMediaIcons";
+import { useOutSideClick } from "@/Hooks";
 interface ISideMenuProps {
   isOpen: boolean;
   onClose: () => void;
@@ -12,6 +13,7 @@ interface ISideMenuProps {
 // const SideMenu: FC<ISideMenuProps> = ({ isOpen, onClose }) => {
 const SideMenu = ({ isOpen, onClose }: ISideMenuProps) => {
   const pathname = usePathname();
+  const sideMenuRef = useOutSideClick<HTMLDivElement>(onClose);
   return (
     <div
       className={`fixed inset-y-0 h-screen left-0 z-50 w-full
@@ -20,6 +22,7 @@ const SideMenu = ({ isOpen, onClose }: ISideMenuProps) => {
     } hoverEffect`}
     >
       <div
+        ref={sideMenuRef}
         className="min-w-72 max-w-96 text-white/80 bg-black h-screen 
       px-7 py-3 border-r border-r-amber-950 shadow-2xl flex flex-col gap-6"
       >
@@ -47,7 +50,7 @@ const SideMenu = ({ isOpen, onClose }: ISideMenuProps) => {
           ))}
         </div>
         <div className="">
-            <SocialMediaIcons/>
+          <SocialMediaIcons />
         </div>
       </div>
     </div>
