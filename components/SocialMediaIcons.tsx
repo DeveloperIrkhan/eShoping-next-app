@@ -42,9 +42,9 @@ export const SocialMedias = [
   }
 ];
 interface ISocialMediaIconsProps {
-  className: string;
-  iconClassName: string;
-  toolTipClassName: string;
+  className?: string;
+  iconClassName?: string;
+  toolTipClassName?: string;
 }
 const SocialMediaIcons = ({
   className,

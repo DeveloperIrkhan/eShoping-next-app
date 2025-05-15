@@ -8,7 +8,7 @@ const MobileMenu = () => {
   return (
     <>
       <button
-        onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         className="md:hidden"
       >
         <AlignLeft className="text-primary-color hoverEffect hover:text-accent-color hover:cursor-pointer" />
@@ -16,7 +16,7 @@ const MobileMenu = () => {
       <div className="md:hidden">
         <SideMenu
           isOpen={isMobileMenuOpen}
-          onClose={() => setIsMobileMenuOpen((prev) => !prev)}
+          onClose={() => setIsMobileMenuOpen(false)}
         />
       </div>
     </>
